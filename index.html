@@ -508,6 +508,80 @@
             font-weight: 400;
         }
 
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 25px;
+            right: 25px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
+            color: white;
+            text-decoration: none;
+        }
+
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 70px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .whatsapp-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            margin-top: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent transparent rgba(0, 0, 0, 0.8);
+        }
+
+        .whatsapp-float:hover .whatsapp-tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 15px;
@@ -558,6 +632,20 @@
 
             .certifications-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                font-size: 26px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .whatsapp-tooltip {
+                right: 65px;
+                font-size: 12px;
+                padding: 6px 10px;
             }
         }
     </style>
@@ -617,7 +705,7 @@
 
             <div class="leadership-grid">
                 <div class="leadership-card">
-                    <h3><i class="fas fa-team"></i> Gestão de Equipe</h3>
+                    <h3><i class="fas fa-users-cog"></i> Gestão de Equipe</h3>
                     <p>• Liderança de equipe multidisciplinar de 8+ desenvolvedores<br>
                     • Mentoria técnica e desenvolvimento de carreira<br>
                     • Implementação de metodologias ágeis (Scrum/Kanban)<br>
@@ -986,12 +1074,18 @@
                     <i class="fas fa-envelope"></i>
                     <div>Email</div>
                 </a>
-                <a href="#" class="contact-item">
+                <a href="tel:+5561991209545" class="contact-item">
                     <i class="fas fa-phone"></i>
-                    <div>Telefone</div>
+                    <div>(61) 99120-9545</div>
                 </a>
             </div>
         </div>
     </div>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5561991209545" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+        <div class="whatsapp-tooltip">Fale comigo no WhatsApp!</div>
+    </a>
 </body>
 </html>
