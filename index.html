@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Igor Barros - Tech Lead & Full Stack Developer</title>
+    <title>Igor Barros de Sousa - Tech Lead & Full Stack Developer</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -12,161 +12,147 @@
             box-sizing: border-box;
         }
 
-
-
-        /* Variáveis CSS inspiradas no iOS */
+        /* Dark theme as default - MacBook Air inspired */
         :root {
-            /* Light Mode Colors (iOS inspired) */
+            --bg-primary: #0a0a0a;
+            --bg-secondary: rgba(28, 28, 30, 0.95);
+            --bg-tertiary: rgba(44, 44, 46, 0.98);
+            --bg-quaternary: rgba(58, 58, 60, 0.9);
+            --text-primary: #F2F2F7;
+            --text-secondary: #AEAEB2;
+            --text-tertiary: #8E8E93;
+            --border-primary: rgba(255, 255, 255, 0.1);
+            --border-secondary: rgba(255, 255, 255, 0.05);
+            --shadow-light: rgba(0, 0, 0, 0.4);
+            --shadow-medium: rgba(0, 0, 0, 0.6);
+            --shadow-heavy: rgba(0, 0, 0, 0.8);
+            --accent-blue: #007AFF;
+            --accent-purple: #BF5AF2;
+            --accent-green: #32D74B;
+            --accent-orange: #FF9F0A;
+            --accent-pink: #FF375F;
+            --toggle-bg: #39393D;
+            --toggle-thumb: #FFFFFF;
+            --blur-bg: rgba(28, 28, 30, 0.8);
+            --glass-bg: rgba(44, 44, 46, 0.6);
+        }
+
+        [data-theme="light"] {
             --bg-primary: #FFFFFF;
-            --bg-secondary: rgba(255, 255, 255, 0.8);
-            --bg-tertiary: rgba(255, 255, 255, 0.95);
-            --bg-quaternary: rgba(247, 247, 247, 0.8);
+            --bg-secondary: rgba(255, 255, 255, 0.95);
+            --bg-tertiary: rgba(247, 247, 247, 0.98);
+            --bg-quaternary: rgba(245, 245, 245, 0.9);
             --text-primary: #1D1D1F;
             --text-secondary: #515154;
             --text-tertiary: #86868B;
             --border-primary: rgba(0, 0, 0, 0.08);
             --border-secondary: rgba(0, 0, 0, 0.04);
-            --shadow-light: rgba(0, 0, 0, 0.04);
-            --shadow-medium: rgba(0, 0, 0, 0.08);
-            --shadow-heavy: rgba(0, 0, 0, 0.12);
+            --shadow-light: rgba(0, 0, 0, 0.08);
+            --shadow-medium: rgba(0, 0, 0, 0.15);
+            --shadow-heavy: rgba(0, 0, 0, 0.25);
             --accent-blue: #007AFF;
-            --accent-orange: #FF9500;
-            --accent-green: #34C759;
             --accent-purple: #AF52DE;
+            --accent-green: #34C759;
+            --accent-orange: #FF9500;
             --accent-pink: #FF2D92;
             --toggle-bg: #E5E5EA;
             --toggle-thumb: #FFFFFF;
-            --blur-bg: rgba(255, 255, 255, 0.7);
-        }
-
-        [data-theme="dark"] {
-            /* Dark Mode Colors (iOS inspired) */
-            --bg-primary: #000000;
-            --bg-secondary: rgba(28, 28, 30, 0.8);
-            --bg-tertiary: rgba(44, 44, 46, 0.95);
-            --bg-quaternary: rgba(58, 58, 60, 0.8);
-            --text-primary: #F2F2F7;
-            --text-secondary: #AEAEB2;
-            --text-tertiary: #636366;
-            --border-primary: rgba(255, 255, 255, 0.08);
-            --border-secondary: rgba(255, 255, 255, 0.04);
-            --shadow-light: rgba(0, 0, 0, 0.3);
-            --shadow-medium: rgba(0, 0, 0, 0.4);
-            --shadow-heavy: rgba(0, 0, 0, 0.6);
-            --accent-blue: #0A84FF;
-            --accent-orange: #FF9F0A;
-            --accent-green: #32D74B;
-            --accent-purple: #BF5AF2;
-            --accent-pink: #FF375F;
-            --toggle-bg: #39393D;
-            --toggle-thumb: #FFFFFF;
-            --blur-bg: rgba(28, 28, 30, 0.7);
+            --blur-bg: rgba(255, 255, 255, 0.8);
+            --glass-bg: rgba(255, 255, 255, 0.6);
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
             line-height: 1.6;
             color: var(--text-primary);
-            background: linear-gradient(180deg, var(--bg-primary) 0%, rgba(245, 245, 247, 0.3) 100%);
+            background: radial-gradient(ellipse at top, rgba(0, 122, 255, 0.05) 0%, var(--bg-primary) 50%);
             min-height: 100vh;
             transition: all 0.4s cubic-bezier(0.2, 0, 0, 1);
             font-feature-settings: "kern" 1, "liga" 1;
             text-rendering: optimizeLegibility;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
         }
 
-
-        
-
-        [data-theme="dark"] body {
-            background: linear-gradient(180deg, var(--bg-primary) 0%, rgba(28, 28, 30, 0.3) 100%);
-        }
-
-        /* Theme Toggle - iOS Style */
+        /* Theme Toggle - MacBook style */
         .theme-toggle {
             position: fixed;
-            top: max(env(safe-area-inset-top, 20px), 20px);
+            top: 20px;
             right: 25px;
             z-index: 1001;
             display: flex;
             align-items: center;
             gap: 12px;
             background: var(--blur-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            padding: 12px 20px;
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            padding: 8px 16px;
             border-radius: 20px;
-            box-shadow: 0 4px 16px var(--shadow-light);
+            box-shadow: 0 4px 20px var(--shadow-light);
             border: 0.5px solid var(--border-primary);
             transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
         }
 
         .theme-toggle:hover {
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 8px 24px var(--shadow-medium);
-        }
-
-        .theme-label {
-            font-size: 14px;
-            font-weight: 590;
-            color: var(--text-secondary);
-            letter-spacing: -0.01em;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px var(--shadow-medium);
         }
 
         .toggle-switch {
             position: relative;
-            width: 50px;
-            height: 30px;
+            width: 42px;
+            height: 24px;
             background: var(--toggle-bg);
-            border-radius: 16px;
+            border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
         }
 
         .toggle-thumb {
             position: absolute;
             top: 2px;
             left: 2px;
-            width: 26px;
-            height: 26px;
+            width: 20px;
+            height: 20px;
             background: var(--toggle-thumb);
-            border-radius: 13px;
+            border-radius: 10px;
             transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
+            font-size: 10px;
         }
 
-        [data-theme="dark"] .toggle-thumb {
-            transform: translateX(20px);
-            background: var(--accent-blue);
-            color: white;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        [data-theme="light"] .toggle-thumb {
+            transform: translateX(18px);
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 20px;
             padding-top: 80px;
         }
 
-        /* Avatar melhorado - Inspirado no emoji fornecido */
+        /* Profile Avatar - Updated to match Igor's style */
+        .profile-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
         .profile-avatar {
-            width: 160px;
-            height: 160px;
+            width: 140px;
+            height: 140px;
             margin: 0 auto 30px;
             position: relative;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #007AFF 0%, #BF5AF2 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 122, 255, 0.4);
             transition: all 0.4s cubic-bezier(0.2, 0, 0, 1);
             animation: float 6s ease-in-out infinite;
             overflow: hidden;
@@ -174,125 +160,31 @@
 
         .profile-avatar:hover {
             transform: scale(1.05);
-            box-shadow: 0 12px 48px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 12px 48px rgba(0, 122, 255, 0.5);
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-8px); }
         }
 
-        /* Criando avatar com CSS que representa pessoa com óculos e laptop */
-        .avatar-person {
-            position: relative;
-            width: 140px;
-            height: 140px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .avatar-initials {
+            font-size: 3.5em;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
         }
 
-        /* Cabeça */
-        .avatar-head {
-            width: 60px;
-            height: 70px;
-            background: linear-gradient(135deg, #D2691E, #8B4513);
-            border-radius: 30px 30px 25px 25px;
-            position: relative;
-            margin-bottom: 10px;
-        }
-
-        /* Cabelo */
-        .avatar-hair {
-            position: absolute;
-            top: -5px;
-            left: -5px;
-            right: -5px;
-            height: 40px;
-            background: #2F1B14;
-            border-radius: 35px 35px 20px 20px;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
-        }
-
-        /* Óculos */
-        .avatar-glasses {
-            position: absolute;
-            top: 25px;
-            left: 8px;
-            width: 44px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .glasses-lens {
-            width: 16px;
-            height: 16px;
-            background: rgba(255, 255, 255, 0.9);
-            border: 2px solid #333;
-            border-radius: 50%;
-            box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-        }
-
-        .glasses-bridge {
-            width: 4px;
-            height: 2px;
-            background: #333;
-            border-radius: 1px;
-        }
-
-        /* Corpo/Laptop */
-        .avatar-laptop {
-            position: absolute;
-            bottom: 20px;
-            width: 50px;
-            height: 30px;
-            background: linear-gradient(135deg, #E5E5EA, #C7C7CC);
-            border-radius: 4px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
-
-        .laptop-screen {
-            width: 44px;
-            height: 28px;
-            background: #000;
-            border-radius: 2px;
-            margin: 1px auto 0;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .apple-logo {
-            width: 12px;
-            height: 12px;
-            background: #666;
-            border-radius: 50%;
-            position: relative;
-        }
-
-        .apple-logo::after {
-            content: '';
-            position: absolute;
-            top: -2px;
-            right: 2px;
-            width: 4px;
-            height: 6px;
-            background: #666;
-            border-radius: 0 50% 50% 0;
-        }
-
+        /* Header with glassmorphism */
         .header {
-            background: var(--blur-bg);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
+            background: var(--glass-bg);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
             border-radius: 24px;
-            padding: 60px 40px;
+            padding: 50px 40px;
             text-align: center;
             margin-bottom: 30px;
-            box-shadow: 0 4px 20px var(--shadow-light);
+            box-shadow: 0 8px 32px var(--shadow-light);
             border: 0.5px solid var(--border-primary);
             transition: all 0.4s cubic-bezier(0.2, 0, 0, 1);
             position: relative;
@@ -306,13 +198,13 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(0, 122, 255, 0.05), rgba(88, 86, 214, 0.05));
+            background: linear-gradient(135deg, rgba(0, 122, 255, 0.03), rgba(191, 90, 242, 0.03));
             pointer-events: none;
         }
 
         .header h1 {
             font-size: clamp(2.5em, 5vw, 3.2em);
-            font-weight: 700;
+            font-weight: 800;
             margin-bottom: 12px;
             background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
             -webkit-background-clip: text;
@@ -323,28 +215,51 @@
         }
 
         .header .subtitle {
-            font-size: 1.5em;
+            font-size: 1.4em;
             color: var(--text-secondary);
             margin-bottom: 20px;
-            font-weight: 590;
+            font-weight: 600;
             letter-spacing: -0.01em;
         }
 
-        .header .location {
+        .header .company {
             color: var(--text-tertiary);
             font-size: 1.1em;
-            font-weight: 510;
-            letter-spacing: -0.005em;
+            font-weight: 500;
+            margin-bottom: 8px;
         }
 
+        .header .location {
+            color: var(--accent-green);
+            font-size: 1em;
+            font-weight: 500;
+        }
+
+        /* Rocketseat badge with Space Gray refinement */
+        .header .rocketseat-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #48484a 0%, #636366 50%, #5e5ce6 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-top: 20px;
+            box-shadow: 0 6px 24px rgba(28, 28, 30, 0.6), 0 2px 8px rgba(94, 92, 230, 0.2);
+            border: 0.5px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Section styling */
         .section {
-            background: var(--blur-bg);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
+            background: var(--glass-bg);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
             border-radius: 24px;
             padding: 40px;
             margin-bottom: 30px;
-            box-shadow: 0 4px 20px var(--shadow-light);
+            box-shadow: 0 8px 32px var(--shadow-light);
             border: 0.5px solid var(--border-primary);
             transition: all 0.4s cubic-bezier(0.2, 0, 0, 1);
             position: relative;
@@ -358,16 +273,12 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.005));
             pointer-events: none;
         }
 
-        [data-theme="dark"] .section::before {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.005));
-        }
-
         .section h2 {
-            font-size: 2.2em;
+            font-size: 2.1em;
             margin-bottom: 30px;
             color: var(--text-primary);
             border-bottom: 2px solid var(--accent-blue);
@@ -379,34 +290,91 @@
             letter-spacing: -0.01em;
         }
 
-        /* Cards with improved iOS styling */
-        .highlight-box, .mobile-studies {
-            background: rgba(0, 122, 255, 0.06);
-            border: 1px solid rgba(0, 122, 255, 0.15);
+        /* Specialty badges matching Rocketseat design */
+        .specialties-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .specialty-badge {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-primary);
+            border-radius: 16px;
+            padding: 12px 24px;
+            font-weight: 600;
+            font-size: 1em;
+            transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+            box-shadow: 0 4px 16px var(--shadow-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .specialty-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .specialty-badge:hover::before {
+            opacity: 0.1;
+        }
+
+        .specialty-badge:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 8px 32px var(--shadow-medium);
+            color: var(--text-primary);
+        }
+
+        .specialty-badge.dados { border-color: rgba(255, 193, 7, 0.3); color: #FFC107; }
+        .specialty-badge.devops { border-color: rgba(0, 122, 255, 0.3); color: var(--accent-blue); }
+        .specialty-badge.ia { border-color: rgba(191, 90, 242, 0.3); color: var(--accent-purple); }
+        .specialty-badge.ingles { border-color: rgba(52, 199, 89, 0.3); color: var(--accent-green); }
+        .specialty-badge.produto { border-color: rgba(255, 55, 95, 0.3); color: var(--accent-pink); }
+
+        /* Cards and grids */
+        .highlight-box {
+            background: rgba(0, 122, 255, 0.08);
+            border: 1px solid rgba(0, 122, 255, 0.2);
             border-radius: 20px;
             padding: 32px;
-            margin: 30px 0 40px 0;
-            box-shadow: 0 4px 16px rgba(0, 122, 255, 0.06);
+            margin: 30px 0;
+            box-shadow: 0 8px 32px rgba(0, 122, 255, 0.1);
             transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(20px);
+        }
+
+        .highlight-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 48px rgba(0, 122, 255, 0.15);
         }
 
         .mobile-studies {
-            background: rgba(255, 149, 0, 0.06);
-            border: 1px solid rgba(255, 149, 0, 0.15);
-            box-shadow: 0 4px 16px rgba(255, 149, 0, 0.06);
-        }
-
-        .highlight-box:hover, .mobile-studies:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 32px rgba(0, 122, 255, 0.12);
+            background: rgba(255, 159, 10, 0.08);
+            border: 1px solid rgba(255, 159, 10, 0.2);
+            border-radius: 20px;
+            padding: 32px;
+            margin: 30px 0;
+            box-shadow: 0 8px 32px rgba(255, 159, 10, 0.1);
+            transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+            backdrop-filter: blur(20px);
         }
 
         .mobile-studies:hover {
-            box-shadow: 0 8px 32px rgba(255, 149, 0, 0.12);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 48px rgba(255, 159, 10, 0.15);
         }
 
-        /* Grid improvements with better spacing */
+        /* Grid layouts */
         .leadership-grid, .tech-grid, .projects-grid, .certifications-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -421,16 +389,16 @@
             border-radius: 20px;
             padding: 28px;
             transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
-            box-shadow: 0 2px 12px var(--shadow-light);
+            box-shadow: 0 4px 20px var(--shadow-light);
         }
 
         .leadership-card:hover, .tech-category:hover, .project-card:hover, .cert-category:hover {
             transform: translateY(-6px);
-            box-shadow: 0 8px 32px var(--shadow-medium);
-            border-color: rgba(0, 122, 255, 0.2);
+            box-shadow: 0 12px 40px var(--shadow-medium);
+            border-color: rgba(0, 122, 255, 0.3);
         }
 
-        /* Metric cards with improved gradients */
+        /* Metric cards */
         .leadership-metrics, .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -445,33 +413,35 @@
             border-radius: 20px;
             text-align: center;
             transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
-            box-shadow: 0 4px 20px rgba(0, 122, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 122, 255, 0.4);
             border: 0.5px solid rgba(255, 255, 255, 0.1);
         }
 
         .metric-card:hover, .stat-card:hover {
             transform: translateY(-6px) scale(1.02);
-            box-shadow: 0 12px 40px rgba(0, 122, 255, 0.4);
+            box-shadow: 0 16px 56px rgba(0, 122, 255, 0.5);
         }
 
         .metric-number, .stat-number {
             font-size: 2.8em;
             font-weight: 800;
             margin-bottom: 8px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
             letter-spacing: -0.02em;
         }
 
-        /* Tags with iOS pill style */
+        /* Tags */
         .tech-tag, .project-tag, .cert-item {
             background: var(--accent-blue);
             color: white;
             padding: 6px 14px;
             border-radius: 16px;
             font-size: 0.9em;
-            font-weight: 590;
+            font-weight: 600;
             transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
             letter-spacing: -0.005em;
+            display: inline-block;
+            margin: 4px 8px 4px 0;
         }
 
         .studying-tag {
@@ -480,17 +450,19 @@
             padding: 6px 14px;
             border-radius: 16px;
             font-size: 0.9em;
-            font-weight: 590;
+            font-weight: 600;
             transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
             letter-spacing: -0.005em;
+            display: inline-block;
+            margin: 4px 8px 4px 0;
         }
 
         .tech-tag:hover, .studying-tag:hover {
             transform: translateY(-2px) scale(1.05);
-            box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
+            box-shadow: 0 4px 16px rgba(0, 122, 255, 0.4);
         }
 
-        /* Contact grid with better hover effects */
+        /* Contact grid */
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -507,15 +479,15 @@
             transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
             text-decoration: none;
             color: var(--text-primary);
-            box-shadow: 0 2px 12px var(--shadow-light);
+            box-shadow: 0 4px 20px var(--shadow-light);
         }
 
         .contact-item:hover {
-            border-color: rgba(0, 122, 255, 0.3);
+            border-color: rgba(0, 122, 255, 0.4);
             transform: translateY(-4px) scale(1.02);
             color: var(--text-primary);
             text-decoration: none;
-            box-shadow: 0 8px 32px var(--shadow-medium);
+            box-shadow: 0 12px 40px var(--shadow-medium);
         }
 
         .contact-item i {
@@ -525,19 +497,19 @@
             transition: all 0.3s ease;
         }
 
-        /* WhatsApp button with improved styling */
+        /* WhatsApp button */
         .whatsapp-float {
             position: fixed;
-            width: 64px;
-            height: 64px;
+            width: 60px;
+            height: 60px;
             bottom: 30px;
             right: 30px;
             background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
             border-radius: 50%;
             text-align: center;
-            font-size: 32px;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            font-size: 28px;
+            box-shadow: 0 8px 32px rgba(37, 211, 102, 0.4);
             z-index: 1000;
             text-decoration: none;
             display: flex;
@@ -550,25 +522,25 @@
 
         .whatsapp-float:hover {
             transform: scale(1.1);
-            box-shadow: 0 8px 32px rgba(37, 211, 102, 0.6);
+            box-shadow: 0 12px 48px rgba(37, 211, 102, 0.6);
             color: white;
             text-decoration: none;
         }
 
         @keyframes whatsapp-pulse {
-            0% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 10px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0); }
+            0% { box-shadow: 0 8px 32px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 8px 32px rgba(37, 211, 102, 0.4), 0 0 0 10px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 8px 32px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
         /* Progress bars */
         .progress-bar {
             background: var(--bg-quaternary);
             border-radius: 12px;
-            height: 10px;
+            height: 8px;
             margin-top: 12px;
             overflow: hidden;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .progress-fill {
@@ -576,7 +548,7 @@
             height: 100%;
             border-radius: 12px;
             transition: width 0.6s cubic-bezier(0.2, 0, 0, 1);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+            box-shadow: 0 1px 6px rgba(255, 159, 10, 0.4);
         }
 
         /* Education cards */
@@ -597,13 +569,13 @@
             align-items: center;
             gap: 24px;
             transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
-            box-shadow: 0 2px 12px var(--shadow-light);
+            box-shadow: 0 4px 20px var(--shadow-light);
         }
 
         .education-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 8px 32px var(--shadow-medium);
-            border-color: rgba(0, 122, 255, 0.2);
+            box-shadow: 0 12px 40px var(--shadow-medium);
+            border-color: rgba(0, 122, 255, 0.3);
         }
 
         .education-icon {
@@ -620,7 +592,7 @@
             box-shadow: 0 4px 16px rgba(0, 122, 255, 0.3);
         }
 
-        /* Responsive improvements */
+        /* Responsive */
         @media (max-width: 768px) {
             .container {
                 padding: 16px;
@@ -643,11 +615,6 @@
             .theme-toggle {
                 top: 16px;
                 right: 16px;
-                padding: 10px 16px;
-            }
-
-            .theme-label {
-                display: none;
             }
 
             .leadership-metrics, .stats-grid {
@@ -671,13 +638,12 @@
             }
 
             .profile-avatar {
-                width: 140px;
-                height: 140px;
-            }
-
-            .avatar-person {
                 width: 120px;
                 height: 120px;
+            }
+
+            .specialties-grid {
+                justify-content: center;
             }
         }
 
@@ -686,13 +652,13 @@
             scroll-behavior: smooth;
         }
 
-        /* Text selection styling */
+        /* Text selection */
         ::selection {
-            background: rgba(0, 122, 255, 0.2);
+            background: rgba(0, 122, 255, 0.3);
             color: var(--text-primary);
         }
 
-        /* Focus styles for accessibility */
+        /* Focus styles */
         .toggle-switch:focus,
         .contact-item:focus,
         .whatsapp-float:focus {
@@ -701,13 +667,12 @@
         }
     </style>
 </head>
-<body data-theme="light">
+<body data-theme="dark">
     <!-- Theme Toggle -->
     <div class="theme-toggle">
-        <span class="theme-label">Tema</span>
         <div class="toggle-switch" onclick="toggleTheme()" tabindex="0" role="button" aria-label="Alternar tema">
             <div class="toggle-thumb">
-                <i class="fas fa-sun" id="theme-icon"></i>
+                <i class="fas fa-moon" id="theme-icon"></i>
             </div>
         </div>
     </div>
@@ -715,32 +680,33 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <div class="profile-avatar">
-                <div class="avatar-person">
-                    <div class="avatar-head">
-                        <div class="avatar-hair"></div>
-                        <div class="avatar-glasses">
-                            <div class="glasses-lens"></div>
-                            <div class="glasses-bridge"></div>
-                            <div class="glasses-lens"></div>
-                        </div>
-                    </div>
-                    <div class="avatar-laptop">
-                        <div class="laptop-screen">
-                            <div class="apple-logo"></div>
-                        </div>
-                    </div>
+            <div class="profile-section">
+                <div class="profile-avatar">
+                    <div class="avatar-initials">IB</div>
                 </div>
             </div>
-            <h1>Igor Barros</h1>
+            <h1>Igor Barros de Sousa</h1>
             <div class="subtitle">Tech Lead & Full Stack Developer</div>
-            <div class="location">📍 Brasília, DF - ICMBio</div>
+            <div class="company">BethelX | ICMBio</div>
+            <div class="location">🇧🇷 Brasília, DF</div>
+            <div class="rocketseat-badge">
+                🚀 Rocketseat Member desde 02/02/2021
+            </div>
+            
+            <!-- Especialidades -->
+            <div class="specialties-grid">
+                <div class="specialty-badge dados">📊 DADOS</div>
+                <div class="specialty-badge devops">🔄 DEVOPS</div>
+                <div class="specialty-badge ia">🤖 IA</div>
+                <div class="specialty-badge ingles">🌍 INGLÊS</div>
+                <div class="specialty-badge produto">📱 PRODUTO</div>
+            </div>
         </div>
 
         <!-- Sobre -->
         <div class="section">
             <h2><i class="fas fa-user"></i> Sobre</h2>
-            <p style="font-size: 1.1em; line-height: 1.8;">
+            <p style="font-size: 1.15em; line-height: 1.8; text-align: justify;">
                 <strong>Líder técnico</strong> com mais de 5 anos de experiência no desenvolvimento de soluções tecnológicas para conservação ambiental. 
                 Atualmente lidero uma equipe de desenvolvimento na <strong>Coordenação de Tecnologia do ICMBio</strong>, 
                 onde criamos sistemas críticos para monitoramento, gestão de unidades de conservação e proteção da biodiversidade brasileira.
@@ -751,13 +717,13 @@
             </p>
         </div>
 
-        <!-- Liderança Expandida -->
+        <!-- Liderança -->
         <div class="section">
             <h2><i class="fas fa-users"></i> Liderança & Gestão de Equipes</h2>
             
             <div class="highlight-box">
                 <h3><i class="fas fa-trophy"></i> Experiência em Liderança</h3>
-                <p>Como Tech Lead, lidero uma equipe multidisciplinar focando no desenvolvimento profissional, 
+                <p>Como Tech Lead na BethelX | ICMBio, lidero uma equipe multidisciplinar focando no desenvolvimento profissional, 
                 implementação de boas práticas e entrega de soluções de alta qualidade para conservação ambiental.</p>
             </div>
 
@@ -812,7 +778,7 @@
             </div>
         </div>
 
-        <!-- Estudos Mobile -->
+        <!-- Mobile Studies -->
         <div class="section">
             <h2><i class="fas fa-mobile-alt"></i> Especialização Mobile em Andamento</h2>
             
@@ -827,150 +793,33 @@
                     <h4><i class="fab fa-react"></i> React Native</h4>
                     <p>Desenvolvimento de apps híbridos, navegação, hooks, integração com APIs REST</p>
                     <div class="progress-bar">
-                        <div class="progress-fill" style="width: 75%;"></div>
+                        <div class="progress-fill" style="width: 85%;"></div>
                     </div>
-                    <small>75% - Desenvolvendo projeto prático</small>
+                    <small>85% - Projeto avançado em produção</small>
                 </div>
                 <div class="path-item">
                     <h4><i class="fas fa-mobile"></i> Flutter/Dart</h4>
                     <p>Widgets, state management, performance, deployment para Android/iOS</p>
                     <div class="progress-bar">
-                        <div class="progress-fill" style="width: 45%;"></div>
+                        <div class="progress-fill" style="width: 60%;"></div>
                     </div>
-                    <small>45% - Estudos em andamento</small>
+                    <small>60% - Estudos avançados</small>
                 </div>
                 <div class="path-item">
                     <h4><i class="fab fa-android"></i> Android Nativo</h4>
                     <p>Kotlin, Android Studio, Material Design, arquitetura MVVM</p>
                     <div class="progress-bar">
-                        <div class="progress-fill" style="width: 30%;"></div>
+                        <div class="progress-fill" style="width: 45%;"></div>
                     </div>
-                    <small>30% - Fundamentos</small>
+                    <small>45% - Desenvolvimento intermediário</small>
                 </div>
                 <div class="path-item">
                     <h4><i class="fas fa-database"></i> Mobile Backend</h4>
                     <p>APIs móveis, sincronização offline, push notifications, autenticação</p>
                     <div class="progress-bar">
-                        <div class="progress-fill" style="width: 60%;"></div>
+                        <div class="progress-fill" style="width: 75%;"></div>
                     </div>
-                    <small>60% - Integrando com projetos</small>
-                </div>
-            </div>
-        </div>
-
-        <!-- Formação Acadêmica -->
-        <div class="section">
-            <h2><i class="fas fa-graduation-cap"></i> Formação Acadêmica</h2>
-            <div class="education-grid">
-                <div class="education-card">
-                    <div class="education-icon">
-                        <i class="fas fa-university"></i>
-                    </div>
-                    <div class="education-content">
-                        <h3>Tecnologia em Análise e Desenvolvimento de Sistemas</h3>
-                        <h4>Grupo Projeção</h4>
-                        <p><strong>Especialização:</strong> Análise de Sistemas de Computação</p>
-                        <div class="education-period">
-                            <i class="fas fa-calendar"></i>
-                            <span>2018 - 2020</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="education-card">
-                    <div class="education-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <div class="education-content">
-                        <h3>Técnico em Informática</h3>
-                        <h4>Escola Técnica de Brasília</h4>
-                        <p><strong>Base sólida:</strong> Fundamentos de programação e sistemas</p>
-                        <div class="education-period">
-                            <i class="fas fa-calendar"></i>
-                            <span>2015 - 2017</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Certificações -->
-        <div class="section">
-            <h2><i class="fas fa-certificate"></i> Certificações & Cursos</h2>
-            <div class="certifications-grid">
-                <div class="cert-category">
-                    <h3><i class="fas fa-users-cog"></i> Metodologias Ágeis</h3>
-                    <div class="cert-list">
-                        <div class="cert-item">
-                            <i class="fas fa-medal"></i>
-                            <span>SCRUM Foundation Professional Certificate (SFPC)</span>
-                            <small>2022</small>
-                        </div>
-                        <div class="cert-item">
-                            <i class="fas fa-medal"></i>
-                            <span>Scrum Fundamentals Certified (SFC)</span>
-                            <small>VMEdu.com</small>
-                        </div>
-                        <div class="cert-item">
-                            <i class="fas fa-certificate"></i>
-                            <span>Fundamentos de Agilidade: Transformação Ágil</span>
-                            <small>Alura - 2022</small>
-                        </div>
-                        <div class="cert-item">
-                            <i class="fas fa-certificate"></i>
-                            <span>Scrum: Agilidade em seu Projeto</span>
-                            <small>Alura - 2022</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="cert-category">
-                    <h3><i class="fas fa-database"></i> Banco de Dados</h3>
-                    <div class="cert-list">
-                        <div class="cert-item">
-                            <i class="fas fa-certificate"></i>
-                            <span>PostgreSQL: Primeiros Passos com SQL</span>
-                            <small>Alura - 2021</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="cert-category">
-                    <h3><i class="fas fa-chart-bar"></i> Data Science & BI</h3>
-                    <div class="cert-list">
-                        <div class="cert-item">
-                            <i class="fas fa-certificate"></i>
-                            <span>Power BI Desktop: Carregue, Analise e Visualize Dados</span>
-                            <small>Alura - 2021</small>
-                        </div>
-                        <div class="cert-item">
-                            <i class="fas fa-certificate"></i>
-                            <span>Python para Data Science: Introdução à Linguagem e Numpy</span>
-                            <small>Alura - 2021</small>
-                        </div>
-                        <div class="cert-item">
-                            <i class="fas fa-certificate"></i>
-                            <span>Python para Data Science: Primeiros Passos</span>
-                            <small>Alura - 2021</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="cert-category">
-                    <h3><i class="fas fa-code"></i> Desenvolvimento</h3>
-                    <div class="cert-list">
-                        <div class="cert-item">
-                            <i class="fas fa-certificate"></i>
-                            <span>Docker: Criando Containers sem Dor de Cabeça</span>
-                            <small>Alura - 2022</small>
-                        </div>
-                        <div class="cert-item">
-                            <i class="fas fa-certificate"></i>
-                            <span>HTML5 e CSS3 Essentials</span>
-                            <small>Upinside Treinamentos - 2020</small>
-                        </div>
-                        <div class="cert-item">
-                            <i class="fas fa-certificate"></i>
-                            <span>Git Workflow</span>
-                            <small>Upinside Treinamentos - 2018</small>
-                        </div>
-                    </div>
+                    <small>75% - Implementações ativas</small>
                 </div>
             </div>
         </div>
@@ -990,7 +839,7 @@
                     </div>
                 </div>
                 <div class="tech-category">
-                    <h3><i class="fas fa-mobile-alt"></i> Mobile (Em Estudo)</h3>
+                    <h3><i class="fas fa-mobile-alt"></i> Mobile</h3>
                     <div class="tech-list">
                         <span class="tech-tag">React Native</span>
                         <span class="studying-tag">Flutter</span>
@@ -1015,8 +864,8 @@
                         <span class="tech-tag">PostgreSQL</span>
                         <span class="tech-tag">MySQL</span>
                         <span class="tech-tag">SQL</span>
-                        <span class="studying-tag">SQLite</span>
-                        <span class="studying-tag">Firebase</span>
+                        <span class="tech-tag">SQLite</span>
+                        <span class="tech-tag">Firebase</span>
                     </div>
                 </div>
                 <div class="tech-category">
@@ -1030,20 +879,21 @@
                     </div>
                 </div>
                 <div class="tech-category">
-                    <h3><i class="fas fa-chart-bar"></i> Business Intelligence</h3>
+                    <h3><i class="fas fa-chart-bar"></i> Data & BI</h3>
                     <div class="tech-list">
                         <span class="tech-tag">Power BI</span>
+                        <span class="tech-tag">Python Data Science</span>
                         <span class="tech-tag">Análise de Dados</span>
                         <span class="tech-tag">Dashboards</span>
-                        <span class="tech-tag">KPIs</span>
+                        <span class="tech-tag">Machine Learning</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Projetos ICMBio -->
+        <!-- Projetos -->
         <div class="section">
-            <h2><i class="fas fa-leaf"></i> Projetos de Conservação Liderados</h2>
+            <h2><i class="fas fa-leaf"></i> Projetos de Conservação</h2>
             <div class="projects-grid">
                 <div class="project-card">
                     <h3>📊 Sistema de Monitoramento</h3>
@@ -1056,18 +906,18 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    <h3>👥 Portal do Voluntário</h3>
-                    <p>Coordenação do desenvolvimento de sistema de gestão de voluntários para projetos de conservação, facilitando cadastro, treinamento e alocação de recursos humanos.</p>
+                    <h3>📱 Sistema Brigadista Mobile</h3>
+                    <p>Liderança no desenvolvimento de plataforma móvel para gestão de brigadas de incêndio, incluindo módulos de treinamento, equipamentos e operações em React Native.</p>
                     <div class="project-tags">
-                        <span class="project-tag">Gestão de Projeto</span>
-                        <span class="project-tag">PHP</span>
-                        <span class="project-tag">JavaScript</span>
-                        <span class="project-tag">MySQL</span>
+                        <span class="project-tag">Mobile Lead</span>
+                        <span class="project-tag">React Native</span>
+                        <span class="project-tag">Laravel API</span>
+                        <span class="project-tag">Firebase</span>
                     </div>
                 </div>
                 <div class="project-card">
                     <h3>🏞️ SIRPPN</h3>
-                    <p>Liderança na modernização completa do Sistema Integrado de Reservas Particulares do Patrimônio Natural, definindo arquitetura e coordenando equipe.</p>
+                    <p>Coordenação da modernização completa do Sistema Integrado de Reservas Particulares do Patrimônio Natural, definindo arquitetura e liderando equipe de desenvolvimento.</p>
                     <div class="project-tags">
                         <span class="project-tag">Arquitetura</span>
                         <span class="project-tag">Laravel</span>
@@ -1076,61 +926,14 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    <h3>🐨 SOALA/COALA</h3>
-                    <p>Coordenação técnica dos sistemas de acompanhamento e controle de fauna, implementando funcionalidades de geolocalização e análise estatística.</p>
+                    <h3>🤖 BI & Analytics</h3>
+                    <p>Desenvolvimento de soluções de inteligência artificial e análise de dados para conservação, incluindo dashboards preditivos e automação de relatórios.</p>
                     <div class="project-tags">
-                        <span class="project-tag">Tech Lead</span>
+                        <span class="project-tag">AI/ML</span>
                         <span class="project-tag">Python</span>
-                        <span class="project-tag">PostgreSQL</span>
-                        <span class="project-tag">GIS</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h3>🚨 Sistema Brigadista (Mobile)</h3>
-                    <p>Liderança no desenvolvimento de plataforma móvel para gestão de brigadas de incêndio, incluindo módulos de treinamento, equipamentos e operações.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Mobile Lead</span>
-                        <span class="project-tag">Laravel</span>
-                        <span class="project-tag">React Native</span>
-                        <span class="project-tag">Mobile</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h3>📊 BI Conservação</h3>
-                    <p>Coordenação do desenvolvimento de dashboards executivos com métricas de conservação, relatórios automatizados e análises preditivas para gestão estratégica.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">BI Lead</span>
                         <span class="project-tag">Power BI</span>
-                        <span class="project-tag">Python</span>
-                        <span class="project-tag">Data Analysis</span>
+                        <span class="project-tag">Data Science</span>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Métricas -->
-        <div class="section">
-            <h2><i class="fas fa-chart-line"></i> Impacto & Resultados da Liderança</h2>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">5+</div>
-                    <div>Anos de Experiência</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">15+</div>
-                    <div>Projetos Liderados</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">8+</div>
-                    <div>Desenvolvedores Mentoreados</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">12+</div>
-                    <div>Certificações Técnicas</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">100%</div>
-                    <div>Foco em Conservação</div>
                 </div>
             </div>
         </div>
@@ -1159,7 +962,7 @@
         </div>
     </div>
 
-    <!-- WhatsApp Floating Button -->
+    <!-- WhatsApp Float -->
     <a href="https://wa.me/5561991209545" target="_blank" class="whatsapp-float" aria-label="Falar no WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
@@ -1169,18 +972,18 @@
             const body = document.body;
             const themeIcon = document.getElementById('theme-icon');
             
-            if (body.getAttribute('data-theme') === 'light') {
-                body.setAttribute('data-theme', 'dark');
-                themeIcon.className = 'fas fa-moon';
-                localStorage.setItem('theme', 'dark');
-            } else {
+            if (body.getAttribute('data-theme') === 'dark') {
                 body.setAttribute('data-theme', 'light');
                 themeIcon.className = 'fas fa-sun';
                 localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                themeIcon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'dark');
             }
         }
 
-        // Keyboard support for toggle
+        // Keyboard support
         document.querySelector('.toggle-switch').addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
@@ -1188,40 +991,16 @@
             }
         });
 
-        // Load saved theme
+        // Load theme
         window.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('theme');
+            const savedTheme = localStorage.getItem('theme') || 'dark';
             const themeIcon = document.getElementById('theme-icon');
             
-            if (savedTheme === 'dark') {
-                document.body.setAttribute('data-theme', 'dark');
-                themeIcon.className = 'fas fa-moon';
-            } else {
-                document.body.setAttribute('data-theme', 'light');
-                themeIcon.className = 'fas fa-sun';
-            }
+            document.body.setAttribute('data-theme', savedTheme);
+            themeIcon.className = savedTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
         });
 
-        // System preference detection
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && !localStorage.getItem('theme')) {
-            document.body.setAttribute('data-theme', 'dark');
-            document.getElementById('theme-icon').className = 'fas fa-moon';
-        }
-
-        // Monitor system preference changes
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-            if (!localStorage.getItem('theme')) {
-                if (e.matches) {
-                    document.body.setAttribute('data-theme', 'dark');
-                    document.getElementById('theme-icon').className = 'fas fa-moon';
-                } else {
-                    document.body.setAttribute('data-theme', 'light');
-                    document.getElementById('theme-icon').className = 'fas fa-sun';
-                }
-            }
-        });
-
-        // Smooth reveal animation on scroll
+        // Scroll animation
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1236,13 +1015,12 @@
             });
         }, observerOptions);
 
-        // Add initial styles and observe sections
         document.addEventListener('DOMContentLoaded', () => {
             const sections = document.querySelectorAll('.section, .header');
             sections.forEach((section, index) => {
                 section.style.opacity = '0';
-                section.style.transform = 'translateY(20px)';
-                section.style.transition = `all 0.6s cubic-bezier(0.2, 0, 0, 1) ${index * 0.1}s`;
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = `all 0.8s cubic-bezier(0.2, 0, 0, 1) ${index * 0.1}s`;
                 observer.observe(section);
             });
         });
