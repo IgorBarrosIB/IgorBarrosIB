@@ -1,0 +1,147 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Space Gray gradients -->
+    <linearGradient id="spaceGrayBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1c1c1e;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#2c2c2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3a3a3c;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#48484a;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#636366;stop-opacity:0.7" />
+    </linearGradient>
+    
+    <linearGradient id="avatarGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#48484a;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#636366;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5e5ce6;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="accentBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0A84FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5e5ce6;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="metallic" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6"/>
+    </filter>
+    
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="8" stdDeviation="20" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+
+    <filter id="innerShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation="3"/>
+      <feOffset in="blur" result="offset" dx="0" dy="2"/>
+      <feComposite in="SourceGraphic" in2="offset" operator="over"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="500" fill="url(#spaceGrayBg)"/>
+  
+  <!-- Floating metallic elements -->
+  <circle cx="320" cy="80" r="30" fill="#48484a" opacity="0.2" filter="url(#metallic)"/>
+  <circle cx="80" cy="400" r="40" fill="#636366" opacity="0.15" filter="url(#metallic)"/>
+  <circle cx="350" cy="350" r="20" fill="#5e5ce6" opacity="0.1" filter="url(#metallic)"/>
+  
+  <!-- Main card with metallic finish -->
+  <rect x="20" y="20" width="360" height="460" rx="24" fill="url(#cardGradient)" stroke="rgba(255,255,255,0.08)" stroke-width="0.5" filter="url(#shadow)"/>
+  
+  <!-- Inner border for metallic effect -->
+  <rect x="21" y="21" width="358" height="458" rx="23" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>
+  
+  <!-- Header section -->
+  <rect x="40" y="40" width="320" height="140" rx="16" fill="rgba(72,72,74,0.4)" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
+  
+  <!-- Profile avatar with Space Gray styling -->
+  <circle cx="100" cy="100" r="32" fill="url(#avatarGradient)" filter="url(#innerShadow)"/>
+  <circle cx="100" cy="100" r="31" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+  <text x="100" y="108" text-anchor="middle" fill="#f2f2f7" font-family="SF Pro Display, -apple-system, sans-serif" font-size="22" font-weight="700">IB</text>
+  
+  <!-- Name and title -->
+  <text x="150" y="85" fill="#f2f2f7" font-family="SF Pro Display, -apple-system, sans-serif" font-size="16" font-weight="700">Igor Barros de Sousa</text>
+  <text x="150" y="102" fill="#d1d1d6" font-family="SF Pro Display, -apple-system, sans-serif" font-size="12" font-weight="600">Tech Lead | BethelX</text>
+  <text x="150" y="118" fill="#aeaeb2" font-family="SF Pro Display, -apple-system, sans-serif" font-size="11">ICMBio</text>
+  <text x="150" y="135" fill="#30D158" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" font-weight="500">🇧🇷 Brasília, DF</text>
+  
+  <!-- Rocketseat badge -->
+  <rect x="40" y="155" width="140" height="20" rx="10" fill="url(#avatarGradient)" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+  <text x="110" y="167" text-anchor="middle" fill="#f2f2f7" font-family="SF Pro Display, -apple-system, sans-serif" font-size="9" font-weight="600">🚀 Rocketseat 02/02/2021</text>
+  
+  <!-- Specialties section -->
+  <text x="40" y="200" fill="#f2f2f7" font-family="SF Pro Display, -apple-system, sans-serif" font-size="14" font-weight="700">Especialidades</text>
+  
+  <!-- Specialty badges with Space Gray styling -->
+  <rect x="40" y="210" width="60" height="24" rx="12" fill="rgba(255, 193, 7, 0.15)" stroke="#FFC107" stroke-width="0.5"/>
+  <text x="70" y="224" text-anchor="middle" fill="#FFC107" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" font-weight="600">DADOS</text>
+  
+  <rect x="110" y="210" width="65" height="24" rx="12" fill="rgba(10, 132, 255, 0.15)" stroke="#0A84FF" stroke-width="0.5"/>
+  <text x="142" y="224" text-anchor="middle" fill="#0A84FF" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" font-weight="600">DEVOPS</text>
+  
+  <rect x="185" y="210" width="35" height="24" rx="12" fill="rgba(191, 90, 242, 0.15)" stroke="#BF5AF2" stroke-width="0.5"/>
+  <text x="202" y="224" text-anchor="middle" fill="#BF5AF2" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" font-weight="600">IA</text>
+  
+  <rect x="230" y="210" width="55" height="24" rx="12" fill="rgba(48, 209, 88, 0.15)" stroke="#30D158" stroke-width="0.5"/>
+  <text x="257" y="224" text-anchor="middle" fill="#30D158" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" font-weight="600">INGLÊS</text>
+  
+  <rect x="295" y="210" width="65" height="24" rx="12" fill="rgba(255, 55, 95, 0.15)" stroke="#FF375F" stroke-width="0.5"/>
+  <text x="327" y="224" text-anchor="middle" fill="#FF375F" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" font-weight="600">PRODUTO</text>
+  
+  <!-- About section -->
+  <text x="40" y="265" fill="#f2f2f7" font-family="SF Pro Display, -apple-system, sans-serif" font-size="14" font-weight="700">Sobre</text>
+  
+  <!-- About text with better spacing -->
+  <foreignObject x="40" y="275" width="320" height="80">
+    <p xmlns="http://www.w3.org/1999/xhtml" style="color: #d1d1d6; font-family: SF Pro Display, -apple-system, sans-serif; font-size: 11px; line-height: 1.4; margin: 0;">
+      Líder técnico especializado em soluções para conservação ambiental. 
+      Foco em arquitetura de software, DevOps e gestão ágil de equipes. 
+      Especialização mobile em React Native e Flutter.
+    </p>
+  </foreignObject>
+  
+  <!-- Tech Stack -->
+  <text x="40" y="375" fill="#f2f2f7" font-family="SF Pro Display, -apple-system, sans-serif" font-size="14" font-weight="700">Stack Principal</text>
+  
+  <!-- Tech badges -->
+  <rect x="40" y="385" width="50" height="20" rx="10" fill="rgba(72,72,74,0.8)" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+  <text x="65" y="397" text-anchor="middle" fill="#d1d1d6" font-family="SF Pro Display, -apple-system, sans-serif" font-size="9" font-weight="500">Laravel</text>
+  
+  <rect x="100" y="385" width="45" height="20" rx="10" fill="rgba(72,72,74,0.8)" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+  <text x="122" y="397" text-anchor="middle" fill="#d1d1d6" font-family="SF Pro Display, -apple-system, sans-serif" font-size="9" font-weight="500">Python</text>
+  
+  <rect x="155" y="385" width="65" height="20" rx="10" fill="rgba(255, 159, 10, 0.2)" stroke="#FF9F0A" stroke-width="0.5"/>
+  <text x="187" y="397" text-anchor="middle" fill="#FF9F0A" font-family="SF Pro Display, -apple-system, sans-serif" font-size="9" font-weight="500">React Native</text>
+  
+  <rect x="230" y="385" width="40" height="20" rx="10" fill="rgba(72,72,74,0.8)" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+  <text x="250" y="397" text-anchor="middle" fill="#d1d1d6" font-family="SF Pro Display, -apple-system, sans-serif" font-size="9" font-weight="500">Docker</text>
+  
+  <rect x="280" y="385" width="50" height="20" rx="10" fill="rgba(72,72,74,0.8)" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+  <text x="305" y="397" text-anchor="middle" fill="#d1d1d6" font-family="SF Pro Display, -apple-system, sans-serif" font-size="9" font-weight="500">Power BI</text>
+  
+  <!-- Stats section with metallic styling -->
+  <rect x="40" y="420" width="320" height="40" rx="12" fill="rgba(58,58,60,0.6)" stroke="rgba(255,255,255,0.05)" stroke-width="0.5" filter="url(#innerShadow)"/>
+  
+  <text x="60" y="435" fill="#0A84FF" font-family="SF Pro Display, -apple-system, sans-serif" font-size="16" font-weight="800">5+</text>
+  <text x="60" y="448" fill="#8e8e93" font-family="SF Pro Display, -apple-system, sans-serif" font-size="9">Anos</text>
+  
+  <text x="130" y="435" fill="#30D158" font-family="SF Pro Display, -apple-system, sans-serif" font-size="16" font-weight="800">15+</text>
+  <text x="130" y="448" fill="#8e8e93" font-family="SF Pro Display, -apple-system, sans-serif" font-size="9">Projetos</text>
+  
+  <text x="200" y="435" fill="#BF5AF2" font-family="SF Pro Display, -apple-system, sans-serif" font-size="16" font-weight="800">8+</text>
+  <text x="200" y="448" fill="#8e8e93" font-family="SF Pro Display, -apple-system, sans-serif" font-size="9">Liderados</text>
+  
+  <text x="270" y="435" fill="#FF375F" font-family="SF Pro Display, -apple-system, sans-serif" font-size="16" font-weight="800">ICMBio</text>
+  <text x="270" y="448" fill="#8e8e93" font-family="SF Pro Display, -apple-system, sans-serif" font-size="9">Atual</text>
+  
+  <!-- Decorative metallic elements -->
+  <circle cx="350" cy="450" r="2" fill="#5e5ce6" opacity="0.6"/>
+  <circle cx="360" cy="440" r="1.5" fill="#0A84FF" opacity="0.4"/>
+  <circle cx="340" cy="460" r="1.5" fill="#30D158" opacity="0.5"/>
+  
+  <!-- Subtle metallic texture lines -->
+  <line x1="40" y1="190" x2="360" y2="190" stroke="rgba(255,255,255,0.02)" stroke-width="0.5"/>
+  <line x1="40" y1="360" x2="360" y2="360" stroke="rgba(255,255,255,0.02)" stroke-width="0.5"/>
+  <line x1="40" y1="410" x2="360" y2="410" stroke="rgba(255,255,255,0.02)" stroke-width="0.5"/>
+</svg>

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Igor Barros - Tech Lead</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+            background: linear-gradient(135deg, #1c1c1e 0%, #2c2c2e 50%, #3a3a3c 100%);
+            color: #f2f2f7;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(94, 92, 230, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(10, 132, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .avatar-large {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #48484a 0%, #636366 50%, #5e5ce6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5em;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(28, 28, 30, 0.8), 0 8px 32px rgba(94, 92, 230, 0.2);
+            border: 0.5px solid rgba(255, 255, 255, 0.1);
+            animation: heroFloat 6s ease-in-out infinite;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(1deg); }
+            50% { transform: translateY(-20px) rotate(0deg); }
+            75% { transform: translateY(-10px) rotate(-1deg); }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5em, 6vw, 4em);
+            font-weight: 900;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #0A84FF 0%, #5e5ce6 50%, #BF5AF2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.2em, 3vw, 1.8em);
+            color: #d1d1d6;
+            font-weight: 600;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero .company {
+            font-size: 1.1em;
+            color: #aeaeb2;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero .location {
+            font-size: 1em;
+            color: #30D158;
+            font-weight: 500;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Specialties inline */
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            background: rgba(72, 72, 74, 0.6);
+            backdrop-filter: blur(20px);
+            color: #f2f2f7;
+            padding: 8px 16px;
+            border-radius: 16px;
+            font-size: 0.9em;
+            font-weight: 600;
+            border: 0.5px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        .hero-badge:hover {
+            transform: translateY(-4px) scale(1.05);
+            background: rgba(94, 92, 230, 0.3);
+        }
+
+        .hero-badge.dados { border-color: rgba(255, 193, 7, 0.4); color: #FFC107; }
+        .hero-badge.devops { border-color: rgba(10, 132, 255, 0.4); color: #0A84FF; }
+        .hero-badge.ia { border-color: rgba(191, 90, 242, 0.4); color: #BF5AF2; }
+        .hero-badge.ingles { border-color: rgba(48, 209, 88, 0.4); color: #30D158; }
+        .hero-badge.produto { border-color: rgba(255, 55, 95, 0.4); color: #FF375F; }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #0A84FF, #5e5ce6);
+            color: white;
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 20px;
+            font-size: 1.1em;
+            font-weight: 600;
+            box-shadow: 0 8px 32px rgba(10, 132, 255, 0.4);
+            transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+            border: 0.5px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 12px 48px rgba(10, 132, 255, 0.5);
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #8e8e93;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-8px); }
+            60% { transform: translateX(-50%) translateY(-4px); }
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2.5em;
+            font-weight: 800;
+            margin-bottom: 30px;
+            color: #f2f2f7;
+        }
+
+        .about-content {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #d1d1d6;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .stat-item {
+            background: rgba(58, 58, 60, 0.6);
+            backdrop-filter: blur(30px);
+            border-radius: 20px;
+            padding: 40px 20px;
+            text-align: center;
+            border: 0.5px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            background: rgba(94, 92, 230, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3em;
+            font-weight: 900;
+            color: #0A84FF;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 8px rgba(10, 132, 255, 0.3);
+        }
+
+        .stat-label {
+            font-size: 1.1em;
+            color: #d1d1d6;
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5em;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #f2f2f7;
+        }
+
+        .contact-subtitle {
+            font-size: 1.2em;
+            color: #d1d1d6;
+            margin-bottom: 50px;
+        }
+
+        .contact-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(58, 58, 60, 0.8);
+            backdrop-filter: blur(20px);
+            color: #f2f2f7;
+            text-decoration: none;
+            padding: 16px 24px;
+            border-radius: 18px;
+            font-size: 1em;
+            font-weight: 600;
+            border: 0.5px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+            min-width: 140px;
+            justify-content: center;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-4px) scale(1.05);
+            color: #f2f2f7;
+            text-decoration: none;
+        }
+
+        .contact-btn i {
+            font-size: 1.2em;
+        }
+
+        .contact-btn.primary {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            box-shadow: 0 8px 32px rgba(37, 211, 102, 0.4);
+        }
+
+        .contact-btn.linkedin {
+            background: rgba(0, 119, 181, 0.2);
+            border-color: rgba(0, 119, 181, 0.4);
+            color: #0077B5;
+        }
+
+        .contact-btn.github {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-btn.email {
+            background: rgba(10, 132, 255, 0.2);
+            border-color: rgba(10, 132, 255, 0.4);
+            color: #0A84FF;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 0.5px solid rgba(255, 255, 255, 0.05);
+            background: rgba(28, 28, 30, 0.8);
+        }
+
+        .footer-text {
+            color: #8e8e93;
+            font-size: 0.9em;
+        }
+
+        .rocketseat-footer {
+            color: #8257E6;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .hero {
+                padding: 80px 0 40px;
+            }
+
+            .avatar-large {
+                width: 120px;
+                height: 120px;
+                font-size: 3em;
+                margin-bottom: 30px;
+            }
+
+            .hero-badges {
+                margin-bottom: 30px;
+            }
+
+            .hero-badge {
+                padding: 6px 12px;
+                font-size: 0.8em;
+            }
+
+            .about, .contact {
+                padding: 60px 0;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+                align-items: stretch;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .contact-btn {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="container">
+            <div class="avatar-large">IB</div>
+            <h1>Igor Barros de Sousa</h1>
+            <div class="subtitle">Tech Lead & Full Stack Developer</div>
+            <div class="company">BethelX | ICMBio</div>
+            <div class="location">🇧🇷 Brasília, DF</div>
+            
+            <div class="hero-badges">
+                <span class="hero-badge dados">📊 DADOS</span>
+                <span class="hero-badge devops">🔄 DEVOPS</span>
+                <span class="hero-badge ia">🤖 IA</span>
+                <span class="hero-badge ingles">🌍 INGLÊS</span>
+                <span class="hero-badge produto">📱 PRODUTO</span>
+            </div>
+            
+            <a href="#about" class="cta-button">
+                <i class="fas fa-arrow-down"></i>
+                Conheça meu trabalho
+            </a>
+        </div>
+        
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </div>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Sobre</h2>
+            <div class="about-content">
+                Líder técnico com mais de 5 anos de experiência no desenvolvimento de 
+                <strong>soluções tecnológicas para conservação ambiental</strong>. 
+                Especialista em arquitetura de software, DevOps e gestão de equipes ágeis, 
+                atualmente focando em <strong>desenvolvimento mobile</strong> 
+                com React Native e Flutter.
+            </div>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Anos de Experiência</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Projetos Liderados</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">8+</div>
+                    <div class="stat-label">Desenvolvedores Mentoreados</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Foco em Conservação</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="container">
+            <h2>Vamos conversar?</h2>
+            <div class="contact-subtitle">
+                Entre em contato para projetos, consultorias ou colaborações
+            </div>
+            
+            <div class="contact-buttons">
+                <a href="https://wa.me/5561991209545" class="contact-btn primary" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    WhatsApp
+                </a>
+                <a href="https://www.linkedin.com/in/igor-barros14/" class="contact-btn linkedin" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    LinkedIn
+                </a>
+                <a href="https://github.com/IgorBarrosIB" class="contact-btn github" target="_blank">
+                    <i class="fab fa-github"></i>
+                    GitHub
+                </a>
+                <a href="mailto:igorbarrosib@gmail.com" class="contact-btn email">
+                    <i class="fas fa-envelope"></i>
+                    Email
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-text">
+                © 2025 Igor Barros de Sousa - Tech Lead especializado em conservação ambiental
+            </div>
+            <div class="rocketseat-footer">
+                🚀 Membro Rocketseat desde 02/02/2021
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartão de Visita BethelX - Igor Barros</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #2d2d2d 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            perspective: 1000px;
+        }
+
+        .card-container {
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        .card-container:hover {
+            transform: rotateY(5deg) rotateX(2deg);
+        }
+
+        .business-card {
+            width: 350px;
+            height: 200px;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 
+                0 20px 60px rgba(0,0,0,0.8),
+                0 8px 32px rgba(0,0,0,0.6),
+                inset 0 1px 0 rgba(255,255,255,0.1);
+            transition: all 0.4s cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        .card-container:hover .business-card {
+            box-shadow: 
+                0 30px 80px rgba(0,0,0,0.9),
+                0 12px 48px rgba(0,0,0,0.7),
+                inset 0 1px 0 rgba(255,255,255,0.15);
+        }
+
+        /* Card Front */
+        .card-front {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1c1c1e 0%, #2c2c2e 30%, #3a3a3c 70%, #48484a 100%);
+            position: relative;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Embossed texture overlay */
+        .card-front::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.02) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.01) 50%, transparent 55%);
+            pointer-events: none;
+        }
+
+        /* Top section with logo */
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+            z-index: 2;
+        }
+
+        .company-logo {
+            font-size: 24px;
+            font-weight: 900;
+            color: #f2f2f7;
+            letter-spacing: -0.02em;
+            text-shadow: 
+                0 2px 8px rgba(0,0,0,0.8),
+                inset 0 1px 0 rgba(255,255,255,0.1);
+            position: relative;
+        }
+
+        .company-logo::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, #0A84FF, #5e5ce6, #BF5AF2);
+            box-shadow: 0 1px 3px rgba(10, 132, 255, 0.5);
+        }
+
+        .company-tagline {
+            font-size: 8px;
+            color: #8e8e93;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+            margin-top: 4px;
+        }
+
+        /* Embossed accent element */
+        .accent-element {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #48484a, #636366);
+            border-radius: 8px;
+            position: relative;
+            box-shadow: 
+                inset 0 2px 4px rgba(255,255,255,0.1),
+                inset 0 -2px 4px rgba(0,0,0,0.3),
+                0 4px 8px rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .accent-element::before {
+            content: '⚡';
+            font-size: 18px;
+            color: #0A84FF;
+            text-shadow: 
+                0 1px 2px rgba(0,0,0,0.8),
+                0 0 8px rgba(10, 132, 255, 0.4);
+        }
+
+        /* Middle section with personal info */
+        .card-body {
+            position: relative;
+            z-index: 2;
+            margin: 12px 0;
+        }
+
+        .name {
+            font-size: 18px;
+            font-weight: 800;
+            color: #f2f2f7;
+            margin-bottom: 4px;
+            text-shadow: 
+                0 2px 6px rgba(0,0,0,0.8),
+                inset 0 1px 0 rgba(255,255,255,0.1);
+            letter-spacing: -0.01em;
+        }
+
+        .position {
+            font-size: 12px;
+            color: #d1d1d6;
+            font-weight: 600;
+            margin-bottom: 2px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+        }
+
+        .department {
+            font-size: 10px;
+            color: #aeaeb2;
+            font-weight: 500;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+        }
+
+        /* Bottom section with contact */
+        .card-footer {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 9px;
+            color: #8e8e93;
+            font-weight: 500;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+        }
+
+        .contact-item i {
+            width: 10px;
+            font-size: 8px;
+            color: #0A84FF;
+            text-shadow: 0 0 4px rgba(10, 132, 255, 0.6);
+        }
+
+        /* Specialties badges with embossed effect */
+        .specialties {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            align-items: flex-end;
+            justify-content: flex-end;
+        }
+
+        .specialty-badge {
+            background: linear-gradient(135deg, #58585a, #6a6a6c);
+            color: #f2f2f7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 7px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            box-shadow: 
+                inset 0 1px 0 rgba(255,255,255,0.2),
+                inset 0 -1px 0 rgba(0,0,0,0.3),
+                0 1px 2px rgba(0,0,0,0.6);
+            text-shadow: 0 1px 1px rgba(0,0,0,0.8);
+            position: relative;
+        }
+
+        .specialty-badge.primary {
+            background: linear-gradient(135deg, #0A84FF, #5e5ce6);
+            box-shadow: 
+                inset 0 1px 0 rgba(255,255,255,0.3),
+                inset 0 -1px 0 rgba(0,0,0,0.3),
+                0 1px 3px rgba(10, 132, 255, 0.4);
+        }
+
+        .specialty-badge.accent {
+            background: linear-gradient(135deg, #BF5AF2, #8257E6);
+            box-shadow: 
+                inset 0 1px 0 rgba(255,255,255,0.3),
+                inset 0 -1px 0 rgba(0,0,0,0.3),
+                0 1px 3px rgba(191, 90, 242, 0.4);
+        }
+
+        /* Embossed border */
+        .card-front::after {
+            content: '';
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            right: 1px;
+            bottom: 1px;
+            border: 0.5px solid rgba(255,255,255,0.08);
+            border-radius: 11px;
+            pointer-events: none;
+        }
+
+        /* Holographic accent line */
+        .holographic-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                #0A84FF 0%, 
+                #5e5ce6 25%, 
+                #BF5AF2 50%, 
+                #FF375F 75%, 
+                #30D158 100%
+            );
+            box-shadow: 0 0 8px rgba(10, 132, 255, 0.6);
+            animation: hologram 3s ease-in-out infinite;
+        }
+
+        @keyframes hologram {
+            0%, 100% { opacity: 0.8; box-shadow: 0 0 8px rgba(10, 132, 255, 0.6); }
+            25% { opacity: 0.9; box-shadow: 0 0 12px rgba(94, 92, 230, 0.7); }
+            50% { opacity: 1; box-shadow: 0 0 16px rgba(191, 90, 242, 0.8); }
+            75% { opacity: 0.9; box-shadow: 0 0 12px rgba(255, 55, 95, 0.7); }
+        }
+
+        /* QR Code placeholder with embossed effect */
+        .qr-placeholder {
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #48484a, #636366);
+            border-radius: 4px;
+            box-shadow: 
+                inset 0 2px 4px rgba(255,255,255,0.1),
+                inset 0 -2px 4px rgba(0,0,0,0.3),
+                0 2px 6px rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.7;
+        }
+
+        .qr-placeholder::before {
+            content: '⬜';
+            font-size: 16px;
+            color: #8e8e93;
+            filter: drop-shadow(0 1px 1px rgba(0,0,0,0.8));
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .business-card {
+                width: 280px;
+                height: 160px;
+            }
+            
+            .card-front {
+                padding: 18px;
+            }
+            
+            .company-logo {
+                font-size: 18px;
+            }
+            
+            .name {
+                font-size: 14px;
+            }
+            
+            .position {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="business-card">
+            <div class="card-front">
+                <!-- Holographic accent line -->
+                <div class="holographic-line"></div>
+                
+                <!-- Header -->
+                <div class="card-header">
+                    <div>
+                        <div class="company-logo">bethelxnext</div>
+                        <div class="company-tagline">Technology & Innovation</div>
+                    </div>
+                    <div class="accent-element"></div>
+                </div>
+                
+                <!-- Body -->
+                <div class="card-body">
+                    <div class="name">Igor Barros de Sousa</div>
+                    <div class="position">Tech Lead & Full Stack Developer</div>
+                    <div class="department">Coordenação de Tecnologia • ICMBio</div>
+                </div>
+                
+                <!-- Footer -->
+                <div class="card-footer">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            igorbarrosib@gmail.com
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            (61) 99120-9545
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            /igor-barros14
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Brasília, DF
+                        </div>
+                    </div>
+                    
+                    <div class="specialties">
+                        <span class="specialty-badge primary">dados</span>
+                        <span class="specialty-badge">devops</span>
+                        <span class="specialty-badge accent">ia</span>
+                        <span class="specialty-badge">mobile</span>
+                        <span class="specialty-badge">gestão</span>
+                    </div>
+                </div>
+                
+                <!-- QR Code placeholder -->
+                <div class="qr-placeholder"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+</body>
+</html>
