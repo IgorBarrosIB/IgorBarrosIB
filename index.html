@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Igor Kós - Professional Portfolio</title>
     <meta name="description" content="Igor Kós - Tech Professional Portfolio">
     <style>
@@ -698,6 +699,28 @@
             line-height: 1.5;
         }
 
+        .whatsapp-float {
+            position: fixed;
+            bottom: 80px;
+            right: 120px;
+            width: 120px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+             
+        }
+
+        .whatsapp-icon {
+            
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             nav {
@@ -916,7 +939,7 @@
         <!-- ICMBio -->
         <div class="timeline-item">
             <div class="timeline-marker"></div>
-            <div class="timeline-date">2019 - PRESENTE</div>
+            <div class="timeline-date">2019 - 2025</div>
             <h3 class="timeline-title">Desenvolvedor Full Stack</h3>
             <p class="timeline-subtitle">Instituto Chico Mendes de Conservação da Biodiversidade (ICMBio)</p>
             <p class="timeline-text">
@@ -943,7 +966,7 @@
 
     </section>
 
-    <!-- Parallax Feature -->
+    <!-- Parallax Feature
     <div class="parallax-feature">
         <div class="parallax-content">
             <h2 class="parallax-title">Building The Future</h2>
@@ -952,6 +975,7 @@
             </p>
         </div>
     </div>
+    -->
 
     <!-- Skills -->
     <section id="skills">
@@ -967,8 +991,8 @@
             <div class="skill-card">
                 <h3>Frontend</h3>
                 <ul class="skill-list">
-                    <li class="skill-item">[Adicione suas skills de Frontend]</li>
-                    <li class="skill-item">[Ex: React, Vue, Angular]</li>
+                    <li class="skill-item">[Skills de Frontend]</li>
+                    <li class="skill-item">[React]</li>
                     <li class="skill-item">[TypeScript]</li>
                     <li class="skill-item">[HTML5 & CSS3]</li>
                     <li class="skill-item">[Responsive Design]</li>
@@ -978,8 +1002,8 @@
             <div class="skill-card">
                 <h3>Backend</h3>
                 <ul class="skill-list">
-                    <li class="skill-item">[Adicione suas skills de Backend]</li>
-                    <li class="skill-item">[Ex: Node.js, Python, Java]</li>
+                    <li class="skill-item">[Skills de Backend]</li>
+                    <li class="skill-item">[PHP, Laravel, Python]</li>
                     <li class="skill-item">[REST APIs]</li>
                     <li class="skill-item">[Microservices]</li>
                     <li class="skill-item">[Database Design]</li>
@@ -989,8 +1013,8 @@
             <div class="skill-card">
                 <h3>DevOps & Cloud</h3>
                 <ul class="skill-list">
-                    <li class="skill-item">[Adicione suas skills de DevOps]</li>
-                    <li class="skill-item">[Ex: AWS, Azure, GCP]</li>
+                    <li class="skill-item">[Skills de DevOps]</li>
+                    <!-- <li class="skill-item"></li>-->
                     <li class="skill-item">[Docker & Kubernetes]</li>
                     <li class="skill-item">[CI/CD]</li>
                     <li class="skill-item">[Infrastructure as Code]</li>
@@ -1000,7 +1024,7 @@
             <div class="skill-card">
                 <h3>Tools & Methods</h3>
                 <ul class="skill-list">
-                    <li class="skill-item">[Adicione suas ferramentas]</li>
+                    <li class="skill-item">[Ferramentas]</li>
                     <li class="skill-item">[Git & GitHub]</li>
                     <li class="skill-item">[Agile/Scrum]</li>
                     <li class="skill-item">[Project Management]</li>
@@ -1010,7 +1034,7 @@
         </div>
     </section>
 
-    <!-- Projects -->
+    <!-- Projects 
     <section id="projects">
         <div class="section-header">
             <div class="section-label">PORTFOLIO</div>
@@ -1019,7 +1043,7 @@
                 Selection of projects demonstrating technical expertise and delivery capability.
             </p>
         </div>
-
+        
         <div class="grid grid-2">
             <div class="project-card">
                 <div class="project-image">🚀</div>
@@ -1036,7 +1060,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="project-card">
                 <div class="project-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">💻</div>
                 <div class="project-content">
@@ -1052,7 +1076,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="project-card">
                 <div class="project-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">🔧</div>
                 <div class="project-content">
@@ -1068,7 +1092,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="project-card">
                 <div class="project-image" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">📱</div>
                 <div class="project-content">
@@ -1086,14 +1110,15 @@
             </div>
         </div>
     </section>
+    -->
 
-    <!-- Testimonials -->
+    <!-- Testimonials 
     <section>
         <div class="section-header">
             <div class="section-label">TESTIMONIALS</div>
             <h2 class="section-title">What People Say</h2>
         </div>
-
+        
         <div class="grid grid-3">
             <div class="testimonial-card">
                 <div class="testimonial-quote">"</div>
@@ -1108,7 +1133,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="testimonial-card">
                 <div class="testimonial-quote">"</div>
                 <p class="testimonial-text">
@@ -1122,7 +1147,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="testimonial-card">
                 <div class="testimonial-quote">"</div>
                 <p class="testimonial-text">
@@ -1138,7 +1163,8 @@
             </div>
         </div>
     </section>
-
+    -->
+    
     <!-- Contact -->
     <section id="contact">
         <div class="section-header">
@@ -1154,17 +1180,12 @@
                 <span class="contact-icon">💼</span>
                 LinkedIn
             </a>
-            <a href="https://github.com/[seu-usuario]" class="contact-link" target="_blank">
+            <a href="https://github.com/IgorBarrosIB" class="contact-link" target="_blank">
                 <span class="contact-icon">💻</span>
                 GitHub
             </a>
-            <a href="mailto:[seu-email]" class="contact-link">
-                <span class="contact-icon">📧</span>
-                Email
-            </a>
-            <a href="https://twitter.com/[seu-usuario]" class="contact-link" target="_blank">
-                <span class="contact-icon">🐦</span>
-                Twitter
+            <a href="https://wa.me/5561991209545" class="contact-link whatsapp-float" target="_blank">
+                WhatsApp
             </a>
         </div>
     </section>
