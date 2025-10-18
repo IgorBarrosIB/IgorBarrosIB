@@ -1,0 +1,51 @@
+[
+  {
+    "title": "Sistema de controle de usuários - SICAE",
+    "description": "Sistema web robusto para gestão de usuáriso do ICMBio.",
+    "icon": "🌳",
+    "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    "tags": ["Zend Framewor", "Docker", "PostgreSQL", "CI/CD"]
+  },
+  {
+    "title": "Portal de Monitoramento Ambiental",
+    "description": "Apoio aos desenvolvedores do monitora para subir uma nova versão do sistema.",
+    "icon": "🛰️",
+    "gradient": "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+    "tags": ["PHP", "Laravel", "JavaScript", "Kubernetes", "APIs REST"]
+  },
+  {
+    "title": "Sistema de Automação DevOps",
+    "description": "Implementação completa de pipeline CI/CD para modernização do parque tecnológico do ICMBio. Automação de testes, builds e deploys, reduzindo o tempo de entrega em 60%. Inclui monitoramento de aplicações, logging centralizado e gestão de secrets.",
+    "icon": "🔧",
+    "gradient": "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+    "tags": ["GitLab CI", "Docker", "Kubernetes", "Terraform", "Monitoring"]
+  },
+  {
+    "title": "Portal Data Download - MMA",
+    "description": "Portal institucional de download de dados ambientais do Ministério do Meio Ambiente. Sistema de gerenciamento de conteúdo personalizado com WordPress, otimizado para grandes volumes de downloads simultâneos. Implementação de CDN e cache distribuído para melhor performance.",
+    "icon": "📊",
+    "gradient": "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
+    "tags": ["WordPress", "PHP", "JavaScript", "Bootstrap", "MySQL"]
+  },
+  {
+    "title": "Portal Data Download - MMA",
+    "description": "Portal institucional de download de dados ambientais do Ministério do Meio Ambiente. Sistema de gerenciamento de conteúdo personalizado com WordPress, otimizado para grandes volumes de downloads simultâneos. Implementação de CDN e cache distribuído para melhor performance.",
+    "icon": "📊",
+    "gradient": "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
+    "tags": ["WordPress", "PHP", "JavaScript", "Bootstrap", "MySQL"]
+  },
+  {
+    "title": "Portal Data Download - MMA",
+    "description": "Portal institucional de download de dados ambientais do Ministério do Meio Ambiente. Sistema de gerenciamento de conteúdo personalizado com WordPress, otimizado para grandes volumes de downloads simultâneos. Implementação de CDN e cache distribuído para melhor performance.",
+    "icon": "📊",
+    "gradient": "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
+    "tags": ["WordPress", "PHP", "JavaScript", "Bootstrap", "MySQL"]
+  },
+  {
+    "title": "Portal Data Download - MMA",
+    "description": "Portal institucional de download de dados ambientais do Ministério do Meio Ambiente. Sistema de gerenciamento de conteúdo personalizado com WordPress, otimizado para grandes volumes de downloads simultâneos. Implementação de CDN e cache distribuído para melhor performance.",
+    "icon": "📊",
+    "gradient": "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
+    "tags": ["WordPress", "PHP", "JavaScript", "Bootstrap", "MySQL"]
+  }
+]
